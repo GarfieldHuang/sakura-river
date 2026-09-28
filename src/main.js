@@ -120,11 +120,11 @@ function initShadow() {
   WATER.mat.uniforms.tShadow.value = key.shadow.map.depthTexture; WATER.mat.uniforms.uHasShadow.value = 1; FX.motes.mat.uniforms.tShadow.value = key.shadow.map.depthTexture;
 }
 function resize() {
-  const w = S.forceW || innerWidth, h = S.forceH || innerHeight;
+  const w = Math.max(2, S.forceW || innerWidth || 2), h = Math.max(2, S.forceH || innerHeight || 2);
   renderer.setPixelRatio(S.scale);
   renderer.setSize(w, h);
   camera.aspect = w / h; camera.updateProjectionMatrix();
-  pipe.setSize(Math.floor(w * S.scale), Math.floor(h * S.scale));
+  pipe.setSize(Math.max(2, Math.floor(w * S.scale)), Math.max(2, Math.floor(h * S.scale)));
   FX.motes.mat.uniforms.uPx.value = S.scale * h / 900;
   FX.ff.mat.uniforms.uPx.value = S.scale * h / 900;
 }
