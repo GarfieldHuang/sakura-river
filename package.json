@@ -1,0 +1,16 @@
+{
+  "name": "sakura-river",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A real-time, fully procedural 3D scene of a riverboat poled upstream through a cherry-blossom valley in feudal Japan.",
+  "scripts": {
+    "build": "node build.mjs && node -e \"require('fs').copyFileSync('dist/index.html','index.html')\"",
+    "build:dev": "node build.mjs --dev"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "three": "0.186.1"
+  },
+  "license": "MIT"
+}
